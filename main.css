@@ -1,0 +1,49 @@
+.
+.title {
+height: 100px;
+font-weight: normal;
+color: #FFFFFF;
+}
+body {
+  width: 1050px;
+  background-color: #EEEEEE;
+  margn: 20px;
+
+}
+.headerImg {
+
+  height: 140px;
+
+
+  background: url(3a83cd51-banner.jpg);
+  width: 100%;
+
+}
+.answer {
+  width:800px;
+    text-align: center;
+  font-weight: normal;
+  margin: 10px auto;
+
+}
+h1{
+  text-align: center;
+}
+.footer {
+  height: 90px;
+  text-align: center;
+  background-color: #4B484F;
+  margin-top: 20px;
+
+
+}
+
+span {
+  text-align: center;
+  padding-top: 20px;
+  color: white;
+  font-size: 12px;
+  margin-top: 60px;
+  display: block;
+
+}
