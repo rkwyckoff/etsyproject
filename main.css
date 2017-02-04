@@ -12,22 +12,23 @@ body {
 }
 .headerImg {
 
-  height: 140px;
-
-
+  height: 100px;
   background: url(3a83cd51-banner.jpg);
-  width: 100%;
+  width: 1060px;
+  height: 130px;
 
 }
 .answer {
   width:800px;
-    text-align: center;
+    text-align: left;
   font-weight: normal;
   margin: 10px auto;
+  color: black;
 
 }
 h1{
   text-align: center;
+  color: black;
 }
 .footer {
   height: 90px;

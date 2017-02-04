@@ -51,11 +51,16 @@ function priceInRange() {
     if (currencyCode === 'USD' &&
         price >= 14.00 &&
         price <= 18.00) {
-      list.push(items[i].title);
+      // create new element 'p' [block, 100% width]
+      var elem = document.createElement('p');
+      // select where you will append the new 'p' element
+      var parent = document.getElementById('answer2');
+      // putting 'title' as the text for 'p' element
+      elem.innerHTML = items[i].title;
+      // append the newly created AND updated 'p' element to the parent
+      jsAnswer.appendChild(elem);
     }
   }
-  // Step 2: Pushing the updated list to HTML
-  jsAnswer.innerHTML = list;
 }
 priceInRange();
 //XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
@@ -78,7 +83,7 @@ function price() {
     // find all items that have currency code : GBP
   //  if currencyCode is gbp, print list with title and price
     if (currencyCode === 'GBP') {
-      listGBP.push(items[i].title, items[i].price) ;
+      listGBP.push(items[i].title + " &pound" + items[i].price) ;
     }
   }
   // Step 2: Pushing the updated list to HTML
@@ -103,13 +108,16 @@ function gotWood() {
     // grab the price of each item
     //  if materials contains "wood", print list with titles
     if (items[i].materials.includes("wood")) {
-      listWood.push(items[i].title);
-
+      //// create new element 'p' [block, 100% width]
+      var elem = document.createElement('p');
+      // select where you will append the new 'p' element
+      var parent = document.getElementById("answer4");
+      // putting 'title' as the text for 'p' element
+      elem.innerHTML = items[i].title + " is made of wood.";
+      // append the newly created AND updated 'p' element to the parent
+      jsAnswer.appendChild(elem);
     }
   }
-  jsAnswer.innerHTML = listWood + " is made of wood."
-  // Step 2: Pushing the updated list to HTML
-  //jsAnswer.innerHTML = listWood + " is made of wood.";
 }
 gotWood();
 
@@ -128,13 +136,20 @@ function gotEight() {
   for (var i = 0; i < items.length; i++) {
     // grab the "materials' code from each item
     var materials = items[i].materials;
-    // grab the price of each item
-    //  if materials <= 8 or fewer, print list with titles, length of materials, and list of materials
-    if (items[i].materials.length <= 8 ) {
-      listMaterials.push(items[i].title, items[i].length, items[i].materials);
+        //  if materials <= 8 or fewer, print list with titles, length of materials, and list of materials
+    if (items[i].materials.length >= 8 ) {
+      /// create new element 'p' [block, 100% width]
+      var elem = document.createElement('p');
+      // select where you will append the new 'p' element
+      var parent = document.getElementById("answer5");
+      // putting 'title' as the text for 'p' element
+      elem.innerHTML = items[i].title + " is made of " + items[i].materials.length + " materials: " + items[i].materials + ".";
+      // append the newly created AND updated 'p' element to the parent
+      jsAnswer.appendChild(elem);
+      //listMaterials.push(items[i].title +
     }
   }
-  jsAnswer.innerHTML = listMaterials
+  //jsAnswer.innerHTML = listMaterials
   // Step 2: Pushing the updated list to HTML
 
 }
@@ -146,7 +161,7 @@ gotEight();
 //How many items were made by their sellers?
 
 function madeBySeller() {
-  var sellerList = [];
+  var sellerNum = 0;
   var jsAnswer = document.getElementById("answer6");
     // Step 1: For loop goes through list of items
   for (var i = 0; i < items.length; i++) {
@@ -154,11 +169,11 @@ function madeBySeller() {
     var materials = items[i].who_made;
     // grab the items with "who_made"
     //  if whomade != someone_else  print list with titles, length of materials, and list of materials
-    if (items[i].who_made !== "someone_else") {
-      sellerList.push(items[i].who_made + " were made by their sellers");
+    if (items[i].who_made == "i_did") {
+      sellerNum++;
     }
   }
-  jsAnswer.innerHTML = sellerList
+  jsAnswer.innerHTML = sellerNum + " were made by their sellers.";
   // Step 2: Pushing the updated list to HTML
 
 }
