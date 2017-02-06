@@ -1,5 +1,5 @@
 
-/*
+
 //Problem 1: Show me how to calculate the average price of all items.
 
 // write a function that loops through all var "items"
@@ -252,11 +252,12 @@ madeBySeller();
 
 //my code:
 
-items.filter(function (x) {
+items.filter(function(x) {
   return x.currency_code = "USD" &&
          x.price >= 14.00 &&
-         x.price <= 18.00;
-});
+         x.price <= 18.00 &&
+
+})
 
 
 function getArray(x) {
