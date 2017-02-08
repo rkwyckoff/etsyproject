@@ -55,7 +55,7 @@ function priceInRange() {
       // create new element 'p' [block, 100% width]
       var elem = document.createElement('p');
       // select where you will append the new 'p' element
-      var parent = document.getElementById('answer2');
+      var parent = document.getElementById("answer2");
       // putting 'title' as the text for 'p' element
       elem.innerHTML = items[i].title;
       // append the newly created AND updated 'p' element to the parent
@@ -142,13 +142,15 @@ function gotEight() {
       /// create new element 'p' [block, 100% width]
       var elem = document.createElement('p');
       // select where you will append the new 'p' element
-      var elem2 = document.createElement('p.ul.li');
-      //  put materials in a list
+      elem.innerHTML = items[i].title + " is made of " + items[i].materials.length + " materials: "
+  for (var i = 0; i < items.length; i++) {
+
+      var elem2 = document.createElement('p');
+      //  put materials in a paragraph
       var parent = document.getElementById("answer5");
       //var parent2 = document.getElementById("answer5");
       // putting 'title' as the text for 'p' element
-      elem.innerHTML = items[i].title + " is made of " + items[i].materials.length + " materials: "
-      elem2.innerHTML = items[i].materials + ".";
+      elem2.innerHTML += items[i].materials + ".";
       // append the newly created AND updated 'p' element to the parent
       jsAnswer.appendChild(elem)
       jsAnswer.appendChild(elem2);
@@ -157,9 +159,44 @@ function gotEight() {
   }
   //jsAnswer.innerHTML = listMaterials
   // Step 2: Pushing the updated list to HTML
-
+}
 }
 gotEight();
+
+//function gotEight() {
+  // var listMaterials = [];
+  // var jsAnswer = document.getElementById("answer5");
+  //   // Step 1: For loop goes through list of items
+  // for (var i = 0; i < items.length; i++) {
+  //   // grab the "materials' code from each item
+  //   var materials = items[i].materials;
+  //       //  if materials <= 8 or fewer, print list with titles, length of materials, and list of materials
+  //   if (items[i].materials.length >= 8 ) {
+  //     /// create new element 'p' [block, 100% width]
+  //     var elem = document.createElement('p');
+  //     // select where you will append the new 'p' element
+  //     var elem2 = document.createElement('p.ul.li');
+  //     //  put materials in a list
+  //     var parent = document.getElementById("answer5");
+  //     //var parent2 = document.getElementById("answer5");
+  //     // putting 'title' as the text for 'p' element
+  //     elem.innerHTML = items[i].title + " is made of " + items[i].materials.length + " materials: "
+  //     elem2.innerHTML = items[i].materials + ".";
+  //     // append the newly created AND updated 'p' element to the parent
+  //     jsAnswer.appendChild(elem)
+  //     jsAnswer.appendChild(elem2);
+  //     //listMaterials.push(items[i].title +
+  //   }
+  // }
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
 
 // //XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 // Problem 6
@@ -185,106 +222,3 @@ function madeBySeller() {
 }
 madeBySeller();
 //XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-
-
-//Hard-Mode:
-
-//Write an additional function for each answer that uses whatever higher order functions you need.
-
-//use these:
-//forEach
-//map
-//filter
-//reduce
-
-
-//Problem 1: Show me how to calculate the average price of all items.
-
-// write a hof forEach function that loops through all var "items"
-// it pulls in all the "price" values, adds them
-// together  and divides by items.length
-
-//var avg = 0;
-  function getAvg() {
-  //targeting element in html to push output
-  var jsAnswer = document.getElementById("answer1");
-//outside loop declare total and avg
-  var total = 0;
-  var avg = 0;
-
-  //run forEach to grab all prices and update total each iteration
-    items.forEach(function getAvg(price, i) {
-      total += items[i].price;
-    })
-    //outside forEach function, divide new total by total array length and reduce to 2 decimals
-    avg = (total / items.length);
-    avg = avg.toFixed(2);
-
-    //update innerHTML with new total
-   jsAnswer.innerHTML = "The average price is $" + avg;
-  }
-//getAvg();
-*/
-//XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-//Problem 2
-//Show me how to get an array of items that cost between $14.00 and $18.00 USD
-
-//get items with usd code , then loop and grab prices ,
-//, then if prices are between $14 and $18 , print list of items
-
-//function priceInRange() {
-
-//  var jsAnswer = document.getElementById("answer2");
-
-    //sample function
-//   function isBigEnough(value) {
-//  return value >= 10;
-//}
-
-//var filtered = [12, 5, 8, 130, 44].filter(isBigEnough);
-// filtered is [12, 130, 44]
-
-//example in MDN
-//function isBigEnough(value) {
-//  return value >= 10;
-//}
-//var filtered = [12, 5, 8, 130, 44].filter(isBigEnough);
-
-//my code:
-
-items.filter(function(x) {
-  return x.currency_code = "USD" &&
-         x.price >= 14.00 &&
-         x.price <= 18.00 &&
-
-})
-
-
-function getArray(x) {
-  console.log(x);
-}
-
-var filterList = items.filter(getArray);
-
-      function getArray(x) {
-      console.log(x)
-
-
-    function isBigEnough(value) {
-  return value >= 10;
-}
-    if (currencyCode === 'USD' &&
-        price >= 14.00 &&
-        price <= 18.00) {
-      // create new element 'p' [block, 100% width]
-      var elem = document.createElement('p');
-      // select where you will append the new 'p' element
-      var parent = document.getElementById('answer2');
-      // putting 'title' as the text for 'p' element
-      elem.innerHTML = items[i].title;
-      // append the newly created AND updated 'p' element to the parent
-      jsAnswer.appendChild(elem);
-    }
-  }
-}
-priceInRange();
